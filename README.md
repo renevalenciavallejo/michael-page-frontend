@@ -1,13 +1,13 @@
 # Michael Page — Task Manager (Frontend Angular)
 
-Frontend en Angular 19 para el sistema de gestión de tareas de la prueba técnica. Consume la Web API .NET expuesta por defecto en `http://localhost:5161/api/v1`.
+Frontend en Angular 21 para el sistema de gestión de tareas de la prueba técnica. Consume la Web API .NET expuesta por defecto en `http://localhost:5161/api/v1`.
 
 > **CORS**: la Web API tiene habilitado únicamente el origen `http://localhost:4200`. El frontend debe servirse en ese puerto (valor por defecto de `ng serve`) para que las peticiones no sean bloqueadas por el navegador.
 
 ## Requisitos
 
 - Node.js 20+
-- Angular CLI 19 (`npm i -g @angular/cli@19`, opcional)
+- Angular CLI 21 (`npm i -g @angular/cli@21`, opcional)
 - Backend .NET corriendo en `http://localhost:5161` (Swagger en `/swagger`)
 
 ## Cómo ejecutar
@@ -56,7 +56,7 @@ No hay que tocar nada más: los servicios HTTP leen `environment.apiUrl` directa
 
 ## Arquitectura
 
-Angular 19 con **standalone components**, **signals** y el nuevo control flow (`@if` / `@for`). Sin NgModules, sin librerías de estado externas.
+Angular 21 con **standalone components**, **signals** y el nuevo control flow (`@if` / `@for`). Sin NgModules, sin librerías de estado externas.
 
 ```
 src/
