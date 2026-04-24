@@ -1,6 +1,6 @@
 import { HttpClient, httpResource, HttpResourceRef } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { API_BASE_URL } from '../../core/services/api-config';
+import { environment } from '../../../environments/environment';
 import { User } from '../models/user/user.dto';
 import { ApiResult } from '../models/api-result.dto';
 import { CreateUser } from '../models/user/create-user.dto';
@@ -8,7 +8,7 @@ import { CreateUser } from '../models/user/create-user.dto';
 @Injectable({ providedIn: 'root' })
 export class UsersService {
   private http = inject(HttpClient);
-  private baseUrl = inject(API_BASE_URL);
+  private baseUrl = environment.apiUrl;
 
   createUser(data: CreateUser) {
     return this.http.post<void>(`${this.baseUrl}/users`, data);

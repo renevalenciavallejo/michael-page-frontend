@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { API_BASE_URL, DEFAULT_API_BASE_URL } from './core/services/api-config';
+
 import { httpErrorInterceptor } from './core/interceptors/http-error.interceptor';
 
 export const appConfig: ApplicationConfig = {
@@ -11,6 +11,5 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(withInterceptors([httpErrorInterceptor])),
-    { provide: API_BASE_URL, useValue: DEFAULT_API_BASE_URL },
   ],
 };

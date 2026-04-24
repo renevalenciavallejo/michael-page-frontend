@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams, httpResource, HttpResourceRef } from '@angular/common/http';
 import { Injectable, Signal, inject } from '@angular/core';
-import { API_BASE_URL } from '../../core/services/api-config';
+import { environment } from '../../../environments/environment';
 import { ApiResult } from '../models/api-result.dto';
 import { CreateTask } from '../models/task/create-task.dto';
 import { Task } from '../models/task/task.dto';
@@ -9,7 +9,7 @@ import { StatusFilter, TaskStatus } from '../enums/task-status.enum';
 @Injectable({ providedIn: 'root' })
 export class TasksService {
   private http = inject(HttpClient);
-  private baseUrl = inject(API_BASE_URL);
+  private baseUrl = environment.apiUrl;
 
   getTasks(filter?: Signal<StatusFilter>): HttpResourceRef<Task[] | undefined> {
     return httpResource<Task[]>(
