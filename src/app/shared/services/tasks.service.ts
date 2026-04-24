@@ -1,9 +1,4 @@
-import {
-  HttpClient,
-  HttpParams,
-  httpResource,
-  HttpResourceRef,
-} from '@angular/common/http';
+import { HttpClient, HttpParams, httpResource, HttpResourceRef } from '@angular/common/http';
 import { Injectable, Signal, inject } from '@angular/core';
 import { API_BASE_URL } from '../../core/services/api-config';
 import { ApiResult } from '../models/api-result.dto';
@@ -33,10 +28,6 @@ export class TasksService {
 
   updateTaskStatus(id: number, status: TaskStatus) {
     const params = new HttpParams().set('status', status);
-    return this.http.patch<ApiResult>(
-      `${this.baseUrl}/tasks/${id}/status`,
-      null,
-      { params },
-    );
+    return this.http.patch<ApiResult>(`${this.baseUrl}/tasks/${id}/status`, null, { params });
   }
 }

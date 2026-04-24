@@ -1,17 +1,7 @@
 import { DatePipe } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-  output,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  TASK_STATUS_LABELS,
-  TaskStatus,
-} from '../../../shared/enums/task-status.enum';
+import { TASK_STATUS_LABELS, TaskStatus } from '../../../shared/enums/task-status.enum';
 import { Task } from '../../../shared/models/task/task.dto';
 import { TasksService } from '../../../shared/services/tasks.service';
 import { StatusBadgeComponent } from '../../../shared/components/status-badge.component';
@@ -29,11 +19,7 @@ export class TaskItemComponent {
   readonly task = input.required<Task>();
   readonly statusChanged = output<void>();
 
-  readonly statuses: TaskStatus[] = [
-    TaskStatus.Pending,
-    TaskStatus.InProgress,
-    TaskStatus.Done,
-  ];
+  readonly statuses: TaskStatus[] = [TaskStatus.Pending, TaskStatus.InProgress, TaskStatus.Done];
   readonly labels = TASK_STATUS_LABELS;
   readonly saving = signal(false);
 

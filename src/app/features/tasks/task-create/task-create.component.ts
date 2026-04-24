@@ -1,14 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ToastService } from '../../../core/services/toast.service';
 import { CreateTask } from '../../../shared/models/task/create-task.dto';
@@ -81,19 +72,13 @@ export class TaskCreateComponent {
   }
 }
 
-function buildAdditionalInfo(v: {
-  priority: string;
-  estimatedEndDate: string;
-  tags: string;
-}) {
+function buildAdditionalInfo(v: { priority: string; estimatedEndDate: string; tags: string }) {
   const priority = v.priority?.trim() || null;
-  const estimatedEndDate = v.estimatedEndDate
-    ? new Date(v.estimatedEndDate).toISOString()
-    : null;
+  const estimatedEndDate = v.estimatedEndDate ? new Date(v.estimatedEndDate).toISOString() : null;
   const tags = v.tags
     ? v.tags
         .split(',')
-        .map((t) => t.trim())
+        .map(t => t.trim())
         .filter(Boolean)
     : [];
 

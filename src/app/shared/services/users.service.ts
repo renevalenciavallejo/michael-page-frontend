@@ -1,8 +1,4 @@
-import {
-  HttpClient,
-  httpResource,
-  HttpResourceRef,
-} from '@angular/common/http';
+import { HttpClient, httpResource, HttpResourceRef } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { API_BASE_URL } from '../../core/services/api-config';
 import { User } from '../models/user/user.dto';

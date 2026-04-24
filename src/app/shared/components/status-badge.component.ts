@@ -1,13 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input,
-} from '@angular/core';
-import {
-  TASK_STATUS_LABELS,
-  TaskStatus,
-} from '../enums/task-status.enum';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { TASK_STATUS_LABELS, TaskStatus } from '../enums/task-status.enum';
 
 const STATUS_CLASSES: Record<TaskStatus, string> = {
   [TaskStatus.Pending]: 'bg-amber-100 text-amber-800',

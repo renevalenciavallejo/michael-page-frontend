@@ -1,10 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { UsersService } from '../../../shared/services/users.service';
 import { ToastService } from '../../../core/services/toast.service';
