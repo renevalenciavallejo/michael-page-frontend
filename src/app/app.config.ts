@@ -4,7 +4,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { API_BASE_URL, DEFAULT_API_BASE_URL } from './core/services/api-config';
-import { httpErrorInterceptor } from './core/services/http-error.interceptor';
+import { httpErrorInterceptor } from './core/interceptors/http-error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
