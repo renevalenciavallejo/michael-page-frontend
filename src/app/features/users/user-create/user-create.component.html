@@ -1,0 +1,62 @@
+<section class="mx-auto max-w-md">
+  <header class="mb-4 flex items-center justify-between">
+    <h1 class="text-xl font-semibold">Nuevo usuario</h1>
+    <a routerLink="/tasks" class="text-sm text-slate-600 hover:underline"
+      >← Volver</a
+    >
+  </header>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+    class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
+  >
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-slate-700" for="name"
+        >Nombre *</label
+      >
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        class="rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+      />
+      @if (showError('name')) {
+        <span class="text-xs text-red-600">El nombre es obligatorio.</span>
+      }
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-slate-700" for="email"
+        >Email *</label
+      >
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+      />
+      @if (showError('email')) {
+        <span class="text-xs text-red-600"
+          >Introduce un email válido.</span
+        >
+      }
+    </div>
+
+    <div class="flex items-center justify-end gap-2 pt-1">
+      <a
+        routerLink="/tasks"
+        class="rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
+      >
+        Cancelar
+      </a>
+      <button
+        type="submit"
+        [disabled]="submitting"
+        class="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50"
+      >
+        {{ submitting ? 'Guardando…' : 'Crear usuario' }}
+      </button>
+    </div>
+  </form>
+</section>

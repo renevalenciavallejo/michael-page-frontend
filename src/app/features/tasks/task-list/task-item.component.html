@@ -1,0 +1,50 @@
+<article
+  class="flex flex-col gap-2 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+>
+  <header class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="truncate text-sm font-semibold text-slate-900">
+        {{ task().title }}
+      </h3>
+      <p class="text-xs text-slate-500">
+        @if (task().assignedUser; as u) {
+          {{ u.name }} — {{ u.email }}
+        } @else {
+          Usuario #{{ task().userId }}
+        }
+      </p>
+    </div>
+    <app-status-badge [status]="task().status" />
+  </header>
+
+  @if (task().additionalInfo; as ai) {
+    <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-600">
+      @if (ai.priority) {
+        <dt class="font-medium">Prioridad</dt>
+        <dd>{{ ai.priority }}</dd>
+      }
+      @if (ai.estimatedEndDate) {
+        <dt class="font-medium">Entrega</dt>
+        <dd>{{ ai.estimatedEndDate | date: 'yyyy-MM-dd' }}</dd>
+      }
+      @if (ai.tags && ai.tags.length) {
+        <dt class="font-medium">Tags</dt>
+        <dd class="truncate">{{ ai.tags.join(', ') }}</dd>
+      }
+    </dl>
+  }
+
+  <footer class="mt-1 flex items-center justify-between">
+    <label class="text-xs text-slate-500">Cambiar estado</label>
+    <select
+      class="rounded-md border border-slate-300 bg-white px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+      [disabled]="saving()"
+      [ngModel]="task().status"
+      (ngModelChange)="onChange($event)"
+    >
+      @for (s of statuses; track s) {
+        <option [ngValue]="s">{{ labels[s] }}</option>
+      }
+    </select>
+  </footer>
+</article>

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:5161/swagger/v1/swagger.json)",
+      "Bash(npx ng *)"
+    ]
+  }
+}

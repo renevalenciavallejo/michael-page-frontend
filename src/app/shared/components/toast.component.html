@@ -1,0 +1,23 @@
+<div class="pointer-events-none fixed top-4 right-4 z-50 flex w-80 flex-col gap-2">
+  @for (t of toast.messages(); track t.id) {
+    <div
+      class="pointer-events-auto flex items-start gap-2 rounded-md border p-3 shadow-sm"
+      [class.bg-red-50]="t.kind === 'error'"
+      [class.border-red-200]="t.kind === 'error'"
+      [class.text-red-800]="t.kind === 'error'"
+      [class.bg-emerald-50]="t.kind === 'success'"
+      [class.border-emerald-200]="t.kind === 'success'"
+      [class.text-emerald-800]="t.kind === 'success'"
+      [class.bg-slate-50]="t.kind === 'info'"
+      [class.border-slate-200]="t.kind === 'info'"
+      [class.text-slate-800]="t.kind === 'info'"
+    >
+      <span class="flex-1 text-sm leading-5">{{ t.message }}</span>
+      <button
+        type="button"
+        class="text-xs opacity-60 hover:opacity-100"
+        (click)="toast.dismiss(t.id)"
+      >✕</button>
+    </div>
+  }
+</div>
